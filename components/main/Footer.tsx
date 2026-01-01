@@ -9,28 +9,35 @@ import {
   RxLinkedinLogo,
 } from "react-icons/rx"
 import { FaYoutube } from "react-icons/fa"
-import { motion } from "framer-motion"
+import { motion, Variants } from "framer-motion"
 
-const iconVariants = {
+/* ---------------- ANIMATIONS ---------------- */
+
+const iconVariants: Variants = {
   initial: { scale: 1, rotate: 0, y: 0 },
   hover: {
     scale: 1.25,
     rotate: 8,
     y: -4,
-    transition: { type: "spring", stiffness: 300 },
+    transition: {
+      type: "spring",
+      stiffness: 300,
+    },
   },
 }
 
-const floatAnimation = {
+const floatAnimation: Variants = {
   animate: {
     y: [0, -6, 0],
     transition: {
       duration: 3,
       repeat: Infinity,
-      ease: "easeInOut",
+      ease: [0.4, 0, 0.6, 1], // ✅ FIXED (TS-safe)
     },
   },
 }
+
+/* ---------------- FOOTER ---------------- */
 
 const Footer = () => {
   return (
